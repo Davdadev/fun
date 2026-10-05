@@ -1,36 +1,45 @@
-# Don't Leave Me On My Own — Minecraft scrapbook music video
+# One Thread — a motion video for "Don't Leave Me On My Own"
 
-A fan-made music video for **Zusha – "Don't Leave Me On My Own"**, styled as a bright, calm,
-dreamy Minecraft scrapbook: pastel paper pages, polaroids of pixel-art scenes, washi tape,
-label-maker titles, pixel stickers, handwritten captions and a 12 fps stop-motion feel.
+An original, code-rendered motion-graphics music video for **Zusha – "Don't Leave Me On My Own"**.
+Bright, calm and dreamy: the whole film is **one glowing thread that never breaks**. It travels
+through nine scenes, drawing everything as it goes, because the song is about not being left on
+your own.
 
-It's a 9:16 (1080×1920) vertical video sized for TikTok, timed to the song's 3:07 at 78 BPM.
+1920×1080, timed to the song's 3:07 at 78 BPM (scenes change every 8 bars). Every frame is a pure
+function of song time, so the live page and the exported MP4 match exactly.
 
-## Pages
+## Scenes
 
-| # | Page | Starts | Scene |
-|---|------|--------|-------|
-| · | Cover | 0:00 | grass block floating in a pastel sky, title written in |
-| 01 | First light | 0:12 | sunrise over blocky hills, a bee flying across the page |
-| 02 | The long way | 0:37 | two friends walking through a birch meadow (panorama), flower close-ups, a ticket stub |
-| 03 | Cherry season | 1:02 | cherry grove with falling petals |
-| 04 | Lantern light | 1:26 | cabin at dusk, lit window, fireflies, stars |
-| 05 | Together | 1:51 | two friends sitting on a cliff at sunset, hearts, photo-booth strip |
-| 06 | Still water | 2:15 | boat on a moonlit lake with reflections |
-| 07 | Keep this | 2:40 | all six photos together, the title on a paper strip |
-| · | The end | 2:58 | credits |
+| # | Scene | Starts | What the thread does |
+|---|-------|--------|----------------------|
+| 01 | Open | 0:00 | writes *don't leave me on my own* in one continuous stroke of script |
+| 02 | Dawn | 0:12 | draws a horizon and a square (Minecraft-style) sun that fills with light |
+| 03 | Hold | 0:37 | draws two people holding hands, with a tiny heart where the hands meet |
+| 04 | Night | 1:02 | joins the stars into a constellation, falls, and is caught in a cradle |
+| 05 | Together | 1:26 | a second, lilac thread appears and the two braid; the title lands word by word on each crossing |
+| 06 | Flame | 1:51 | draws a candle, lights it, and circles it with a halo |
+| 07 | Rise | 2:15 | climbs a staircase of floating grass blocks above the clouds |
+| 08 | Home | 2:40 | draws a house with a lit window, the two figures again, and a heart tied off above them |
+| 09 | End | 2:58 | one long calm line out of frame, then credits |
 
-Pages change with a page-turn every 8 bars. Everything is drawn in code on a canvas;
-there are no image files.
+Around it: kinetic serif typography for the title hook, a mono "film slate" HUD (timecode, bar and
+beat, scene number), blocky Minecraft-style clouds, square stars and floating square motes, soft
+bloom, light leaks and film grain.
+
+Typefaces: Instrument Serif and DM Mono (Google Fonts). The handwriting is the public-domain Hershey
+"Script 1-stroke" single-line font, via the MIT-licensed
+[hersheytext](https://github.com/techninja/hersheytextjs) JSON.
 
 ## Watch it with the song
 
-Open `index.html` (or the published artifact), press **Add the song file**, pick your own
-copy of the song (mp3/m4a), and press **Play**. The song never leaves your device.
+Open `index.html` (or the published artifact), press **Add the song file**, pick your own copy of
+the song (mp3/m4a) and press **Play**. The file never leaves your device. The glow reacts to the
+music while it plays.
 
-**Lyrics (optional):** open *Add lyrics*, paste timed lyrics in LRC format
-(`[00:21.40] a line`), or paste plain lines and press **Tap to time**, then tap Space at
-the start of each line while the song plays. They're saved in your browser.
+**Lyrics (optional).** The film only uses the song title on screen. To show the full lyrics word
+by word, open *Add lyrics* and paste timed lyrics in LRC format (`[00:21.40] a line`, word stamps
+like `<00:21.40>` work too), or paste plain lines and press **Tap to time**, then tap Space at the
+start of each line while the song plays. They're saved in your browser.
 
 ## Make an MP4
 
@@ -43,9 +52,9 @@ node render.mjs --audio song.mp3 --lyrics song.lrc
 node render.mjs --stills 10,40,80 --outdir shots  # a few PNG frames
 ```
 
-Other options: `--out file.mp4`, `--fps 30`, `--size 1080`, `--from 0 --to 30`,
-`--crf 22`, `--maxrate 4M` (the default cap keeps the full video under 100 MB).
+Other options: `--out file.mp4`, `--fps 30` (try 60), `--size 1920`, `--from 0 --to 30`,
+`--crf 22`, `--maxrate 4M`.
 
-With `--audio`, the timeline stretches to the file's exact length, so a version that is a
-second or two different still lines up. For TikTok you can also post the silent MP4 and
-add the song as the sound in the TikTok or CapCut editor, starting from 0:00.
+With `--audio`, the timeline stretches to the file's exact length, so a version that's a second or
+two different still lines up. You can also take the silent MP4 into CapCut or any editor and drop
+the song in at 0:00.

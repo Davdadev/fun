@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Renders the scrapbook video in index.html to an MP4 using headless Chromium + ffmpeg.
 //
-//   node render.mjs                                  # silent 1080x1920 MP4, 30 fps
+//   node render.mjs                                  # silent 1920x1080 MP4, 30 fps
 //   node render.mjs --audio song.mp3                 # same, with the song muxed in
 //   node render.mjs --audio song.mp3 --lyrics song.lrc
 //   node render.mjs --stills 10,40,70 --outdir shots # just a few PNG frames
@@ -24,7 +24,7 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, all) =>
   return acc;
 }, []));
 const fps = +(args.fps || 30);
-const size = +(args.size || 1080);
+const size = +(args.size || 1920);
 const out = path.resolve(args.out || path.join(here, 'dont-leave-me-on-my-own.mp4'));
 const audio = args.audio ? path.resolve(args.audio) : null;
 const lyrics = args.lyrics ? fs.readFileSync(path.resolve(args.lyrics), 'utf8') : null;
@@ -57,7 +57,7 @@ if (proxy) {
 await page.goto(url, { waitUntil: 'networkidle' }).catch(() => page.goto(url));
 await page.waitForFunction(() => window.MV);
 await page.evaluate(() => window.MV.ready);
-const fontsOk = await page.evaluate(() => [...document.fonts].some(f => f.family.includes('Gaegu') && f.status === 'loaded'));
+const fontsOk = await page.evaluate(() => [...document.fonts].some(f => f.status === 'loaded'));
 if (!fontsOk) console.warn('warning: web fonts did not load; frames will use fallback fonts');
 
 let duration = 187;
